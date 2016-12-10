@@ -59,20 +59,21 @@ function create() {
     ledge = platforms.create(-150, 250, 'ground');
     ledge.body.immovable = true;
 
+	/*-------------------adding the player------------------*/
     // The player and its settings
-    player = game.add.sprite(32, game.world.height - 150, 'rick');
+    player = game.add.sprite(32, game.world.height - 150, 'rick'); //adds the character
 
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.body.bounce.y = 0.2;
-    player.body.gravity.y = 300;
-    player.body.collideWorldBounds = true;
+    player.body.gravity.y = 300; 
+    player.body.collideWorldBounds = true; // when he walks, he doesn't walk off edge of the world
 
     //  Our two animations, walking left and right.
-    player.animations.add('left', [0, 1], 5, true);
-	player.animations.add('right', [3, 4], 5, true);
+    player.animations.add('left', [0, 1], 5, true); // inside the array, the first and second sprites will be the left animation
+	player.animations.add('right', [3, 4], 5, true); // inside the array the last two sprites will be the right animation
 
 }
 
