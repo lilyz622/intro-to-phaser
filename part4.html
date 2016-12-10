@@ -25,33 +25,33 @@ function preload() {
 
 }
 
-var platforms;
+var platforms; // we need this
 
 function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
-    game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.startSystem(Phaser.Physics.ARCADE); // all characters and everything can be affected laws of physics
 
     //  A simple background for our game
-    game.add.sprite(0, 0, 'sky');
+    game.add.sprite(0, 0, 'sky'); //place it at 0,0
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
-    platforms = game.add.group();
+    platforms = game.add.group(); // allows us to reuse it
 
     //  We will enable physics for any object that is created in this group
-    platforms.enableBody = true;
+    platforms.enableBody = true; 
 
     // Here we create the ground.
-    var ground = platforms.create(0, game.world.height - 64, 'ground');
+    var ground = platforms.create(0, game.world.height - 64, 'ground'); // place it at 0, ..
 
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     ground.scale.setTo(2, 2);
 
     //  This stops it from falling away when you jump on it
-    ground.body.immovable = true;
+    ground.body.immovable = true; // if false, the ground will fall.
 
     //  Now let's create two ledges
-    var ledge = platforms.create(400, 400, 'ground');
+    var ledge = platforms.create(400, 400, 'ground'); 
 
     ledge.body.immovable = true;
 
